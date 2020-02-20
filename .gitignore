@@ -2,4 +2,5 @@
 *.vscode
 *.pyc
 *.swp
+bin/
 ./bin
