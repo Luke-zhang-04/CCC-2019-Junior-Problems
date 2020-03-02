@@ -42,4 +42,4 @@ B
 ## Output for Sample Input 2 ##
 ```
 T 
-```w
+```
