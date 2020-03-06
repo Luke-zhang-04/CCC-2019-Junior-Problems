@@ -65,3 +65,4 @@ def get_degree(table):
 degree = get_degree(table)
 cout = rotate(degree, table)
 for row in cout: print(*row)
+
