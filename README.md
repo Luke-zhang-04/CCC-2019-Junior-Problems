@@ -1,3 +1,5 @@
 # CCC-Junior-Problems
 
-Where I try to solve all 5 problems of all CCC Junior problems in Python and C++.
+A collection of CCC problems and solutions in C++ and Python
+
+Problems can be found [here](https://cemc.uwaterloo.ca/contests/past_contests.html#ccc)
