@@ -35,7 +35,7 @@ The data has been rotated a multiple of ```360``` degrees, meaning that the inpu
 The original data was rotated ```90``` degrees to the right/clockwise.
 ## Sample Input 3 ##
 ```
-3 
+3
 3 7 9
 2 5 6
 1 3 4
@@ -47,4 +47,4 @@ The original data was rotated ```90``` degrees to the right/clockwise.
 4 6 9
 ```
 ## Explanation of Output for Sample Input 3 ##
-The original data was rotated ```90``` degrees to the left/counter-clockwise. 
+The original data was rotated ```90``` degrees to the left/counter-clockwise.

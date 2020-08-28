@@ -3,7 +3,7 @@
 Here at the Concerned Citizens of Commerce (CCC), we have noted that telemarketers like to use seven-digit phone numbers where the last four digits have three properties. Looking just at the last four digits, these properties are:
 * the first of these four digits is an ```8``` or ```9```;
 * the last digit is an ```8``` or ```9```;
-* the second and third digits are the same. 
+* the second and third digits are the same.
 
 For example, if the last four digits of the telephone number are ```8229```, ```8338```, or ```9008```, these are telemarketer numbers. <br/><br/>
 Write a program to decide if a telephone number is a telemarketer number or not, based on the last four digits.
@@ -37,4 +37,4 @@ The first digit is ```9```, the last digit is ```8```, and the second and third 
 answer
 ```
 ## Explanation of Output for Sample Input 2 ##
-The first digit is ```5```, and so this is not a telemarketer number. 
+The first digit is ```5```, and so this is not a telemarketer number.

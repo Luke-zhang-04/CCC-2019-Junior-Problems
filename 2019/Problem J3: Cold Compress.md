@@ -7,7 +7,7 @@ The first line of input contains the number ```N```, which is the number of line
 Output will be ```N``` lines. Line ```i``` of the output will be the encoding of the line ```i``` + ```1``` of the input. The encoding of a line will be a sequence of pairs, separated by a space, where each pair is an integer (representing the number of times the character appears consecutively) followed by a space, followed by the character.
 ## Sample Input ##
 ```
-4 
+4
 +++===!!!!
 777777......TTTTTTTTTTTT
 (AABBC)
@@ -24,4 +24,4 @@ Output will be ```N``` lines. Line ```i``` of the output will be the encoding of
 
 ## Explanation of Output for Sample Input ##
 To see how the first message (on the second line of input) is encoded,
-notice that there are ```3``` + symbols, followed by ```3``` = symbols, followed by ```4``` ! symbols. 
+notice that there are ```3``` + symbols, followed by ```3``` = symbols, followed by ```4``` ! symbols.

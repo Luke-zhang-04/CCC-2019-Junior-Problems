@@ -7,7 +7,9 @@ bScore = score(int(input()), int(input()), int(input()))
 
 if aScore == bScore:
     winner = "T"
-
-winner = "A" if aScore > bScore else "B"
+elif aScore > bScore:
+    winner = "A"
+else:
+    winner = "B"
 
 print(winner)

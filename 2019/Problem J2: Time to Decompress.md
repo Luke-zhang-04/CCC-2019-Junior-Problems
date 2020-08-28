@@ -5,7 +5,7 @@ Your friend can encode a message to you by writing down a positive integer ```N`
 You can decode that message by writing out that symbol ```N``` times in a row on one line.
 Given a message that your friend has encoded, decode it.
 ## Input Specification ##
-The first line of input contains ```L```, the number of lines in the message. 
+The first line of input contains ```L```, the number of lines in the message.
 The next ```L``` lines each contain one positive integer less than ```80```, followed by one space, followed by a (non-space) character.
 
 ## Output Specification ##
@@ -27,5 +27,5 @@ Specifically, if line ```i + 1``` of the input contained ```N x```, then line ``
 +++++++++
 ---
 AAAAAAAAAAAA
-XX 
+XX
 ```

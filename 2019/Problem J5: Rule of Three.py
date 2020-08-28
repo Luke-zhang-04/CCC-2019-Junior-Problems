@@ -9,7 +9,7 @@ for _ in range(3):
 steps, initialSeq, finalSeq = input().split(" ")
 
 
-class node:
+class Node:
     def __init__(self, value, parent=None, ruleUsed=None, indexChanged=None):
         self.parent = parent
         self.children = []
@@ -35,7 +35,7 @@ class node:
 
         for i in out_values:
             self.children.append(
-                node(i[0], parent=self, ruleUsed=i[1], indexChanged=i[2] + 1)
+                Node(i[0], parent=self, ruleUsed=i[1], indexChanged=i[2] + 1)
             )
 
         if steps > 0:
@@ -67,7 +67,7 @@ class node:
             print(*i)
 
 
-top = node(initialSeq)
+top = Node(initialSeq)
 top.child_values(rules, int(steps))
 for i in top.leaves:
     if i.val == finalSeq:

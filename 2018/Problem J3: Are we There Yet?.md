@@ -24,4 +24,4 @@ The first line of output contains:
 * 3, since the distance between city 1 and city 2 is 3;
 * 13, since the distance between city 1 and city 3 is 3 + 10 = 13;
 * 25, since the distance between city 1 and city 4 is 3 + 10 + 12 = 25;
-* 30, since the distance between city 1 and city 5 is 3 + 10 + 12 + 5 = 30. 
+* 30, since the distance between city 1 and city 5 is 3 + 10 + 12 + 5 = 30.

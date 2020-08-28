@@ -15,7 +15,7 @@ int main() {
 
         cin >> numb >> symbol;
         cin.clear();
-        
+
         code.push_back(std::tuple<int, char> (numb, symbol));
     }
 
