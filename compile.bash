@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Compile C++ code for a problem
 # For help, pass in -h or --help
@@ -11,6 +11,11 @@ IFS=" " read -ra args <<< "$argString" # Assign args variable from argv
 
 inputFile="" # Input file name for later
 bin="bin" # Binary output file
+
+# If args array is empty
+if [[ ${#args[@]} == 0 ]]; then
+    exit 0
+fi
 
 # If -h or --help flags are passed
 if [[ "${args[*]}" =~ "-h" ]]||[[ "${args[*]}" =~ "--help" ]]; then
