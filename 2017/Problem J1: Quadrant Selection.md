@@ -25,5 +25,5 @@ Output the quadrant number (```1```, ```2```, ```3``` or ```4```) for the point 
 ```
 ## Output for Sample Input 2 ##
 ```
-4 
+4
 ```

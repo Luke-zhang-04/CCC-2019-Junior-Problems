@@ -22,7 +22,7 @@ int main() {
     int a; int b; int c; int d;
     cin >> a >> b >> c >> d;
     std::vector<int> dists = {0, a, b, c, d};
-    
+
     for (unsigned int i = 0; i < dists.size(); i++) {
         std::vector<int> output;
         int index = indexOf(dists, 0);
