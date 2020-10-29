@@ -4,3 +4,4 @@
 *.swp
 bin
 input.txt
+node_modules
