@@ -11,7 +11,7 @@ IFS=" " read -ra args <<< "$argString" # Assign args variable from argv
 
 inputFile="" # Input file name for later
 bin="bin" # Binary output file
-compiler="g++" # Default compiler
+compiler="clang++" # Default compiler
 
 # If -h or --help flags are passed
 if [[ "${args[*]}" =~ "-h" ]]||[[ "${args[*]}" =~ "--help" ]]||[[ ${#args[@]} == 0 ]]; then
@@ -41,13 +41,13 @@ if [[ "$inputFile" == "" ]]; then # If no input file exists
     exit 1
 fi
 
-if [[ ! "$(g++ --version)" ]]; then
-    echo "g++ not found; changing compiler to clang++"
+if [[ ! "$(clang++ --version)" ]]; then
+    echo "clang++ not found; changing compiler to clang++"
     compiler="clang++"
 fi
 
-if [[ ! "$(clang++ --version)" ]]; then
-    echo "clang++ not found, exiting"
+if [[ ! "$(g++ --version)" ]]; then
+    echo "g++ not found, exiting"
     exit 1
 fi
 
