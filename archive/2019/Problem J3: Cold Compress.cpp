@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 using std::string;
 
@@ -18,13 +18,13 @@ std::vector<string> output(string str) {
         count = 0;
         for (unsigned int i = index; i < str.length(); i++) {
             if (str[i] != str[index]) {
-                index2 = i-1;
+                index2 = i - 1;
                 break;
             }
             count++;
         }
         if (index2 - index > 0) {
-            portion = str.substr(index, index2-index);
+            portion = str.substr(index, index2 - index);
         } else {
             portion = str[index];
             index2++;
@@ -36,7 +36,7 @@ std::vector<string> output(string str) {
 
         index += count;
 
-        if (index+1 == str.length()) {
+        if (index + 1 == str.length()) {
             break;
         }
     }
@@ -55,9 +55,9 @@ int main() {
         lines[i] = a;
     }
 
-    for (const string &i: lines) {
+    for (const string& i : lines) {
         std::vector<string> res = output(i);
-        for (const string &x: res) {
+        for (const string& x : res) {
             cout << x << " ";
         }
         cout << endl;

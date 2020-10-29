@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 using std::string;
 
 int count(std::vector<char> arr, char target) {
     int total = 0;
-    for (const char &i: arr) {
+    for (const char& i : arr) {
         if (i == target) {
-            total ++;
+            total++;
         }
     }
     return total;
@@ -21,7 +21,7 @@ int main() {
     getline(cin, input);
     std::vector<char> rule;
 
-    for (const char &i: input) {
+    for (const char& i : input) {
         rule.push_back(i);
     }
 
