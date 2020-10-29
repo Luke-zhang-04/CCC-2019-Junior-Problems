@@ -44,8 +44,6 @@ int main() {
         float speed =
             std::abs(pos - previousPosition) / float(time - previousTime);
 
-        cout << speed << endl;
-
         previousTime = time;
         previousPosition = pos;
 

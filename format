@@ -1,6 +1,0 @@
-#!/bin/sh
-
-clang-format 2020/*.cpp -style=file -i 2020/*.cpp &
-black 2020/*.py &
-
-wait
