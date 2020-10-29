@@ -3,7 +3,7 @@
 # Compile C++ code for a problem
 # For help, pass in -h or --help
 # To compile a program, pass in the year followed by the problem number
-# For an example, bash compile.bash 2019 J1
+# For an example, ./compile 2019 J1
 # To execute the compiled program, pass in -e or --exec
 
 argString="$*" # Passed in arguments
@@ -11,6 +11,7 @@ IFS=" " read -ra args <<< "$argString" # Assign args variable from argv
 
 inputFile="" # Input file name for later
 bin="bin" # Binary output file
+compiler="g++" # Default compiler
 
 # If args array is empty
 if [[ ${#args[@]} == 0 ]]; then
@@ -22,7 +23,7 @@ if [[ "${args[*]}" =~ "-h" ]]||[[ "${args[*]}" =~ "--help" ]]; then
     printf "Compile C++ code for a problem
 
 To compile a program, pass in the year followed by the problem number
-    e.g bash compile.bash 2019 J1
+    e.g ./compile.bash 2019 J1
 
 -h --help help for command
 -e --exec execute binary file right after compiling
@@ -45,9 +46,19 @@ if [[ "$inputFile" == "" ]]; then # If no input file exists
     exit 1
 fi
 
+if [[ ! "$(g++ --version)" ]]; then
+    echo "g++ not found; changing compiler to clang++"
+    compiler="clang++"
+fi
+
+if [[ ! "$(clang++ --version)" ]]; then
+    echo "clang++ not found, exiting"
+    exit 1
+fi
+
 # Compile with g++. If that doesn't work, try clang++
-echo "g++ $inputFile -o $bin --std=c++11 || clang++ $inputFile -o $bin --std=c++11"
-g++ "$inputFile" -o "$bin" --std=c++11 || clang++ "$inputFile" -o "$bin" --std=c++11
+echo "$compiler $inputFile -o $bin --std=c++11"
+"$compiler" "$inputFile" -o "$bin" --std=c++11
 
 # If -e or --exec flags are passed
 if [[ "${args[*]}" =~ "-e" ]]||[[ "${args[*]}" =~ "--exec" ]]; then
