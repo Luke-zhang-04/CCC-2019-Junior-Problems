@@ -51,7 +51,6 @@ if [[ ! "$(clang++ --version)" ]]; then
     exit 1
 fi
 
-# Compile with g++. If that doesn't work, try clang++
 echo "$compiler $inputFile -o $bin --std=c++11"
 "$compiler" "$inputFile" -o "$bin" --std=c++11
 
