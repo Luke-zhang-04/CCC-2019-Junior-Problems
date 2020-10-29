@@ -3,3 +3,6 @@
 
 # Don't diff or textually merge source maps
 *.map binary
+
+# Skip archive
+archive/* linguist-detectable=false
