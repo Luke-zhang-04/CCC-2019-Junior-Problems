@@ -13,13 +13,8 @@ inputFile="" # Input file name for later
 bin="bin" # Binary output file
 compiler="g++" # Default compiler
 
-# If args array is empty
-if [[ ${#args[@]} == 0 ]]; then
-    exit 0
-fi
-
 # If -h or --help flags are passed
-if [[ "${args[*]}" =~ "-h" ]]||[[ "${args[*]}" =~ "--help" ]]; then
+if [[ "${args[*]}" =~ "-h" ]]||[[ "${args[*]}" =~ "--help" ]]||[[ ${#args[@]} == 0 ]]; then
     printf "Compile C++ code for a problem
 
 To compile a program, pass in the year followed by the problem number
