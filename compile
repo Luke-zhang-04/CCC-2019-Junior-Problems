@@ -18,7 +18,7 @@ if [[ "${args[*]}" =~ "-h" ]]||[[ "${args[*]}" =~ "--help" ]]||[[ ${#args[@]} ==
     printf "Compile C++ code for a problem
 
 To compile a program, pass in the year followed by the problem number
-    e.g ./compile.bash 2019 J1
+    e.g ./compile.bash 2020 S1
 
 -h --help help for command
 -e --exec execute binary file right after compiling
@@ -42,8 +42,8 @@ if [[ "$inputFile" == "" ]]; then # If no input file exists
 fi
 
 if [[ ! "$(clang++ --version)" ]]; then
-    echo "clang++ not found; changing compiler to clang++"
-    compiler="clang++"
+    echo "clang++ not found; changing compiler to g++"
+    compiler="g++"
 fi
 
 if [[ ! "$(g++ --version)" ]]; then
