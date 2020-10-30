@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 entryCount = int(input())
 entries = []
 fastestSpeed = 0
