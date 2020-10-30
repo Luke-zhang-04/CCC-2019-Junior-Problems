@@ -10,16 +10,11 @@ for entry in range(entryCount):
 
 entries.sort()
 
-(previousTime, previousPosition) = entries[0]
-del entries[0]
+for entry in range(0, entryCount - 1, 1):
+    distance = entries[entry + 1][1] - entries[entry][1]
+    time = entries[entry + 1][0] - entries[entry][0]
+    prevSpeed = abs(distance) / time
 
-for entry in entries:
-    (time, pos) = entry
-
-    speed = (abs(pos - previousPosition)) / (time - previousTime)
-    (previousTime, previousPosition) = entry
-
-    if speed > fastestSpeed:
-        fastestSpeed = speed
+    fastestSpeed = max(fastestSpeed, prevSpeed)
 
 print(fastestSpeed)

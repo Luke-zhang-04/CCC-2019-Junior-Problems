@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <tuple>
 #include <vector>
@@ -6,6 +7,7 @@
 using std::cin;
 using std::cout;
 using std::endl;
+using std::max;
 using std::tuple;
 using std::vector;
 
@@ -17,39 +19,27 @@ int main() {
     uint entryCount;
     vector<tuple<uint, int>> entries;
     float fastestSpeed = 0;
-    uint previousTime;
-    int previousPosition;
 
     cin >> entryCount;
 
     for (uint entry = 0; entry < entryCount; entry++) {
         uint time;
-        int speed;
+        int position;
 
-        cin >> time >> speed;
-        entries.push_back(tuple<uint, int>(time, speed));
+        cin >> time >> position;
+        entries.push_back(tuple<uint, int>(time, position));
     }
 
     std::sort(entries.begin(), entries.end(), sort);
 
-    previousTime = std::get<0>(entries[0]);
-    previousPosition = std::get<1>(entries[0]);
+    for (unsigned int entry = 0; entry < entryCount - 1; entry++) {
+        int distance =
+            std::get<1>(entries[entry + 1]) - std::get<1>(entries[entry]);
+        float time =
+            std::get<0>(entries[entry + 1]) - std::get<0>(entries[entry]);
+        float prevSpeed = std::abs(distance) / time;
 
-    entries.erase(entries.begin());
-
-    for (auto& entry : entries) {
-        uint time = std::get<0>(entry);
-        int pos = std::get<1>(entry);
-
-        float speed =
-            std::abs(pos - previousPosition) / float(time - previousTime);
-
-        previousTime = time;
-        previousPosition = pos;
-
-        if (speed > fastestSpeed) {
-            fastestSpeed = speed;
-        }
+        fastestSpeed = max(fastestSpeed, prevSpeed);
     }
 
     cout << fastestSpeed << endl;
