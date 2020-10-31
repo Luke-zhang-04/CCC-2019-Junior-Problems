@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# This solution grants 11/15 points.
+# For subtask 5, case 3 (test 26), a wrong answer is outputted (recursion error)
+# For subtask 6, case 1 (test 30), a timeout error occurs
 import sys
 
 rows = int(sys.stdin.readline(), 10)
