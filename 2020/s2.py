@@ -1,48 +1,48 @@
-#!/usr/bin/env python3
-# This solution grants 11/15 points.
-# For subtask 5, case 3 (test 26), a wrong answer is outputted (recursion error)
-# For subtask 6, case 1 (test 30), a timeout error occurs
+#!/bin/python3
 import sys
 
-rows = int(sys.stdin.readline(), 10)
-columns = int(sys.stdin.readline(), 10)
-hasReachedEnd = False
+# Recursion limit needs to be high
+sys.setrecursionlimit(1_000_000)
+
+
+rows = int(sys.stdin.readline())  # No. of rows
+columns = int(sys.stdin.readline())  # No. of columns
+
+"""Visited squares.
+We only need one visited set because if the square has been visited we know
+there's no way that square will take us to the end.
+This way, we don't look through the same path multiple times.
+"""
+visited = set()
+
+"""Squares to be stored in the following way:
+{valueOfSquare: [productOfCoords...]}
+"""
 squares = {}
 
 for i in range(rows):
-    vals = sys.stdin.readline().split(" ")
+    vals = list(
+        map(int, sys.stdin.readline().split())
+    )  # Split input by space and convert values to an integer
 
-    for index, val in enumerate(vals):
-        squares[f"{i + 1} {index + 1}"] = int(val, 10)
-
-
-def iterateSquares(multiplied, square, visited):
-    global hasReachedEnd
-
-    try:
-        visited[square]
-    except KeyError:
-        if not hasReachedEnd and multiplied == squares[square]:
-            if square == "1 1":
-                hasReachedEnd = True
-
-                return
-
-            visited[square] = None
-            dfs(square, visited)
+    for index, val in enumerate(vals):  # Add squares to the squares dictionary
+        squareValue = (i + 1) * (index + 1)
+        squares.setdefault(val, []).append(squareValue)
 
 
-def dfs(coords, visited={}):
-    x, y = coords.split(" ")
+def solve(squareValue):
+    # If the value of the square is 1, it can only go to (1, 1).
+    # Therefore, we have reached the end.
+    if squareValue == 1:
+        return True
 
-    tuple(
-        map(
-            lambda square: iterateSquares(int(x, 10) * int(y, 10), square, visited),
-            squares,
-        ),
-    )
+    for index in squares.setdefault(squareValue, []):
+        if index not in visited:  # If square hasn't been visited
+            visited.add(index)  # Add to visited
+            if solve(index):  # Solve
+                return True
+
+    return False
 
 
-dfs(f"{rows} {columns}")
-
-print("yes" if hasReachedEnd else "no")
+print("yes" if solve(rows * columns) else "no")
