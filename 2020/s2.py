@@ -1,33 +1,42 @@
 #!/usr/bin/env python3
+import sys
 
-rows = int(input())
-columns = int(input())
-
+rows = int(sys.stdin.readline(), 10)
+columns = int(sys.stdin.readline(), 10)
+hasReachedEnd = False
 squares = {}
 
 for i in range(rows):
-    vals = input().split(" ")
+    vals = sys.stdin.readline().split(" ")
 
     for index, val in enumerate(vals):
-        squares[f"{i} {index}"] = int(val)
+        squares[f"{i + 1} {index + 1}"] = int(val, 10)
 
-class Node:
-    children = []
 
-    def __init__ (self, coords, val):
-        self.coords = coords
-        self.val = val
+def iterateSquares(multiplied, square, visited):
+    global hasReachedEnd
 
-        x, y = coords.split(" ")
-        self.multiplied = int(x) * int(y)
+    if multiplied == squares[square] and not hasReachedEnd and square not in visited:
+        if square == "1 1":
+            hasReachedEnd = True
 
-    def traverse (self):
-        append = self.children.append
-        multiplied = self.multiplied
+            return
 
-        for square in squares:
-            if (multiplied == squares[square]):
-                append(Node(square, squares[square]))
+        visited[square] = None
+        dfs(square, visited)
 
-        map(lambda child: child.traverse(), self.children)
 
+def dfs(coords, visited={}):
+    x, y = coords.split(" ")
+
+    list(
+        map(
+            lambda square: iterateSquares(int(x, 10) * int(y, 10), square, visited),
+            squares,
+        ),
+    )
+
+
+dfs(f"{rows} {columns}")
+
+print("yes" if hasReachedEnd else "no")
