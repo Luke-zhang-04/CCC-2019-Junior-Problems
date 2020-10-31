@@ -16,20 +16,23 @@ for i in range(rows):
 def iterateSquares(multiplied, square, visited):
     global hasReachedEnd
 
-    if multiplied == squares[square] and not hasReachedEnd and square not in visited:
-        if square == "1 1":
-            hasReachedEnd = True
+    try:
+        visited[square]
+    except KeyError:
+        if not hasReachedEnd and multiplied == squares[square]:
+            if square == "1 1":
+                hasReachedEnd = True
 
-            return
+                return
 
-        visited[square] = None
-        dfs(square, visited)
+            visited[square] = None
+            dfs(square, visited)
 
 
 def dfs(coords, visited={}):
     x, y = coords.split(" ")
 
-    list(
+    tuple(
         map(
             lambda square: iterateSquares(int(x, 10) * int(y, 10), square, visited),
             squares,
