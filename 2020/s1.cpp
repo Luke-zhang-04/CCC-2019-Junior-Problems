@@ -38,7 +38,7 @@ int main() {
     std::sort(entries.begin(), entries.end(), sort);
 
     // Go through each sprint time
-    for (unsigned int entry = 0; entry < entryCount - 1; entry++) {
+    for (uint entry = 0; entry < entryCount - 1; entry++) {
         int distance = std::get<1>(entries[entry + 1]) -
                        std::get<1>(entries[entry]); // Distance covered
         float time = std::get<0>(entries[entry + 1]) -
