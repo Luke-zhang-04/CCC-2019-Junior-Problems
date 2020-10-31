@@ -52,7 +52,7 @@ if [[ ! "$(g++ --version)" ]]; then
 fi
 
 echo "$compiler $inputFile -o $bin --std=c++11"
-"$compiler" "$inputFile" -o "$bin" --std=c++11
+"$compiler" "$inputFile" -o "$bin" --std=c++11 || exit 1
 
 # If -e or --exec flags are passed
 if [[ "${args[*]}" =~ "-e" ]]||[[ "${args[*]}" =~ "--exec" ]]; then
