@@ -23,7 +23,7 @@ foundPermutations = set()
 add = foundPermutations.add
 
 for index in range(0, len(haystack) - needleLength + 1):
-    needleSlice = haystack[index:index + needleLength - 1]
+    needleSlice = haystack[index : index + needleLength - 1]
 
     if (
         getLetters(needleSlice) == needleLetters
