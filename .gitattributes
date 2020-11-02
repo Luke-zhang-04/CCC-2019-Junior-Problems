@@ -6,3 +6,6 @@
 
 # Skip archive
 archive/* linguist-detectable=false
+
+# Skip data files
+**/data/* linguist-detectable=false
