@@ -61,7 +61,7 @@ bool solve(uint squareValue) {
         return false;
     }
 
-    for (auto& index : squares.at(squareValue)) {
+    for (auto& index : squares[squareValue]) {
         if (visited.find(index) ==
             visited.end()) {       // If square hasn't been visited
             visited.insert(index); // Add to visited
@@ -91,9 +91,9 @@ int main() {
 
             if (squares.find(val) == squares.end()) {
                 vector<uint> coordinateProduct = {squareValue};
-                squares.insert(pair<uint, vector<uint>>(val, coordinateProduct));
+                squares[val] = coordinateProduct;
             } else {
-                squares.at(val).push_back(squareValue);
+                squares[val].push_back(squareValue);
             }
         }
     }
