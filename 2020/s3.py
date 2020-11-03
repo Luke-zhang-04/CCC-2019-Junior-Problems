@@ -1,5 +1,6 @@
 #!/bin/python3
 # NOTE: This solution gives 7/15 points. On test 115, it times out @3.2 seconds.
+# The C++ solution which uses an identical algorithm will will score 15/15
 
 import sys
 
