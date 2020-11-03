@@ -5,4 +5,6 @@
 bin
 input.txt
 node_modules
+data
 all_data
+*.zip
