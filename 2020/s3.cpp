@@ -82,8 +82,7 @@ int main() {
          * If the two hashmaps are the same,
          * and the hashed slice isn't already found
          */
-        if (prevLetters == needleLetters &&
-            foundPermutations.find(hashed) == foundPermutations.end()) {
+        if (prevLetters == needleLetters) {
             foundPermutations.insert(hashed);
         }
     }

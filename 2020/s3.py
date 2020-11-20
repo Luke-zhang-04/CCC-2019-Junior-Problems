@@ -65,7 +65,7 @@ for index in range(0, len(haystack) - needleLength + 1):
     """
 
     # If the two dictionaries are the same, and the hashed slice isn't already found
-    if prevLetters == needleLetters and hash(needleSlice) not in foundPermutations:
+    if prevLetters == needleLetters:
         add(hash(needleSlice))  # Use the foundPermutations.add function
 
 print(len(foundPermutations))
