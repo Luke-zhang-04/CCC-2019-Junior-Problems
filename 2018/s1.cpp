@@ -9,8 +9,8 @@ using std::endl;
 using std::vector;
 
 int main() {
-    std::cout << std::fixed;
-    std::cout << std::setprecision(1);
+    cout << std::fixed
+         << std::setprecision(1); // Set output presicion to 1 digit
 
     int villageCount;     // No of villages
     vector<int> villages; // All village positions
