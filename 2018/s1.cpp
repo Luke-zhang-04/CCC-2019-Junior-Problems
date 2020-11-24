@@ -10,7 +10,7 @@ using std::vector;
 
 int main() {
     cout << std::fixed
-         << std::setprecision(1); // Set output presicion to 1 digit
+         << std::setprecision(1); // Set output precision to 1 digit
 
     int villageCount;     // No of villages
     vector<int> villages; // All village positions
