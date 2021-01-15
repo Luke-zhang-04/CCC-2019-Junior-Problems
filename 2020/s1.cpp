@@ -39,16 +39,14 @@ int main() {
 
     // Go through each sprint time
     for (uint entry = 0; entry < entryCount - 1; entry++) {
-        int distance = std::get<1>(entries[entry + 1]) -
-                       std::get<1>(entries[entry]); // Distance covered
-        float time = std::get<0>(entries[entry + 1]) -
-                     std::get<0>(entries[entry]); // Delta time
+        int distance =
+            std::get<1>(entries[entry + 1]) - std::get<1>(entries[entry]); // Distance covered
+        float time = std::get<0>(entries[entry + 1]) - std::get<0>(entries[entry]); // Delta time
 
         float prevSpeed = std::abs(distance) / time; // v = d / t
 
-        fastestSpeed =
-            max(fastestSpeed, prevSpeed); // If this speed is faster, add it.
-                                          // Othersise, use old speed
+        // If this speed is faster, add it. Othersise, use old speed.
+        fastestSpeed = max(fastestSpeed, prevSpeed);
     }
 
     cout << fastestSpeed << endl;

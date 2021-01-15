@@ -37,8 +37,7 @@ int main() {
         grid[0].swap(grid[1]);
     }
 
-    cout << grid[0][0] << " " << grid[0][1] << endl
-         << grid[1][0] << " " << grid[1][1] << endl;
+    cout << grid[0][0] << " " << grid[0][1] << endl << grid[1][0] << " " << grid[1][1] << endl;
 
     return 0;
 }

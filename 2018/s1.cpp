@@ -9,8 +9,7 @@ using std::endl;
 using std::vector;
 
 int main() {
-    cout << std::fixed
-         << std::setprecision(1); // Set output precision to 1 digit
+    cout << std::fixed << std::setprecision(1); // Set output precision to 1 digit
 
     int villageCount;     // No of villages
     vector<int> villages; // All village positions
@@ -38,10 +37,8 @@ int main() {
         }
 
         auto leftDistance = prevDistance; // Distance from left of the village
-        auto rightDistance =
-            (villages[index + 1] - _Float64(val)) / 2; // Distance from right
-        auto totalDistance =
-            leftDistance + rightDistance; // Total neighbourhood size
+        auto rightDistance = (villages[index + 1] - _Float64(val)) / 2; // Distance from right
+        auto totalDistance = leftDistance + rightDistance;              // Total neighbourhood size
 
         // Assign smallest distance if this distance is smaller
         if (smallestDistance == 0 || totalDistance < smallestDistance) {

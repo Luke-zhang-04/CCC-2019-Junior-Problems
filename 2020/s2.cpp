@@ -20,9 +20,8 @@ uint columns; // No. of columns
 
 /**
  * Visited squares.
- * We only need one visited set because if the square has been visited we know
- * there's no way that square will take us to the end.
- * This way, we don't look through the same path multiple times.
+ * We only need one visited set because if the square has been visited we know there's no way that
+ * square will take us to the end. This way, we don't look through the same path multiple times.
  */
 set<uint> visited;
 
@@ -51,21 +50,21 @@ vector<string> split(string str) {
  * DFS resurcive function to solve problem
  */
 bool solve(uint squareValue) {
-    // If the value of the square is 1, it can only go to(1, 1).
-    // Therefore, we have reached the end.
+    /**
+     * If the value of the square is 1, it can only go to(1, 1).
+     * Therefore, we have reached the end.
+     */
     if (squareValue == 1) {
         return true;
-    } else if (squares.find(squareValue) == squares.end()) { // If square with
-                                                             // value doesn't
-                                                             // exist, return
+    } else if (squares.find(squareValue) == squares.end()) { // If square with value doesn't exist,
+                                                             // return
         return false;
     }
 
     for (auto& index : squares[squareValue]) {
-        if (visited.find(index) ==
-            visited.end()) {       // If square hasn't been visited
-            visited.insert(index); // Add to visited
-            if (solve(index)) {    // Solve
+        if (visited.find(index) == visited.end()) { // If square hasn't been visited
+            visited.insert(index);                  // Add to visited
+            if (solve(index)) {                     // Solve
                 return true;
             }
         }

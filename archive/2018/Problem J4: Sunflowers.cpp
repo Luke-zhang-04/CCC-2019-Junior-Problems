@@ -11,8 +11,7 @@ using std::string;
 
 int lines;
 
-std::vector<std::vector<int>>
-    rotate(int deg, std::vector<std::vector<int>> table) {
+std::vector<std::vector<int>> rotate(int deg, std::vector<std::vector<int>> table) {
     std::vector<std::vector<int>> output;
     if (deg == 180) {
         linesLoop(i) {
@@ -67,8 +66,7 @@ int get_degree(std::vector<std::vector<int>> table) {
         bool broken = false;
 
         for (unsigned int x = 0; x < lines - 1; x++) {
-            if (table[table.size() - (i + 1)][x] >
-                table[table.size() - (i + 1)][x + 1]) {
+            if (table[table.size() - (i + 1)][x] > table[table.size() - (i + 1)][x + 1]) {
                 broken = true;
                 break;
             }
@@ -106,8 +104,7 @@ int get_degree(std::vector<std::vector<int>> table) {
         bool broken = false;
 
         for (unsigned int x = 0; x < lines - 1; x++) {
-            if (table[x][table.size() - (i + 1)] <
-                table[x + 1][table.size() - (i + 1)]) {
+            if (table[x][table.size() - (i + 1)] < table[x + 1][table.size() - (i + 1)]) {
                 broken = true;
                 break;
             }
