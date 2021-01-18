@@ -11,3 +11,6 @@ You can use the provided script or compile manually
 
 ./compile <year> <problem>
 ```
+
+## Notes:
+When typing with Python, use the `typing` module as the grader doesn't support `list[int]`, only `List[int]`
