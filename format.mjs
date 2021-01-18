@@ -1,9 +1,17 @@
 #!/usr/bin/env node
 
+/**
+ * @file autoformatting and file watching with black for Python and clang-format
+ * for C++
+ * @see {@link https://github.com/psf/black}
+ * @see {@link https://clang.llvm.org/docs/ClangFormat.html}
+ */
+
 import chokidar from "chokidar"
 import childProcess from "child_process"
 
-const resolveChildProcess = (err, stdout, stderr, resolve) => {
+
+const resolveChildProcess = (err, stdout, stderr) => {
     err && console.error(err)
     stderr && console.error(stderr)
     stdout && console.log(stdout)
