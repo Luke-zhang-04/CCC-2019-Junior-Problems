@@ -5,6 +5,8 @@
 import sys
 from typing import List
 
+Grid = List[List[int]]
+
 size = int(sys.stdin.readline(), 10)  # Grid size
 
 sunflowers = [
@@ -12,14 +14,14 @@ sunflowers = [
 ]  # Grid of sunflowers
 
 
-def printGrid(grid: List[List[int]]) -> None:
+def printGrid(grid: Grid) -> None:
     """Prints `grid` to stdout"""
 
     for row in grid:
         print(*row)
 
 
-def rotate(grid: List[List[int]], amt: int = 0) -> List[List[int]]:
+def rotate(grid: Grid, amt: int = 0) -> Grid:
     """Rotates `grid` clockwise by `amt` degrees (must be a multiple of 90) and
     returns it
 
@@ -52,7 +54,7 @@ def rotate(grid: List[List[int]], amt: int = 0) -> List[List[int]]:
     return grid  # `amt` = 0, return grid
 
 
-def gridIsValid(grid: List[List[int]]) -> bool:
+def gridIsValid(grid: Grid) -> bool:
     """Tests if `grid` is a valid sunflower grid by testing each row and then
     each columns's numbers
 
