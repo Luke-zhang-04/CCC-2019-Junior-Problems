@@ -51,14 +51,23 @@ if [[ ! "$(g++ --version)" ]]; then
     exit 1
 fi
 
-echo "$compiler $inputFile -o $bin --std=c++11"
-"$compiler" "$inputFile" -o "$bin" --std=c++11 || exit 1
+if [[ $(echo "${inputFile}:$(shasum -a 384 "$inputFile")" | node buildInfo.js) == 1 ]]; then
+    echo "$compiler $inputFile -o $bin --std=c++11"
+    "$compiler" "$inputFile" -o "$bin" --std=c++11 || exit 1
+    echo "Compiled!"
+else
+    echo "No changes were made to $inputFile"
+fi
+
+
 
 # If -e or --exec flags are passed
 if [[ "${args[*]}" =~ "-e" ]]||[[ "${args[*]}" =~ "--exec" ]]; then
     if test -f "$bin"; then
-        echo "Compiled!"
+        dashes="---------------"
+        printf "Executing\n\nProgram output:\n%s\n" $dashes
         ./"$bin"
+        echo "$dashes"
     else
         echo "$bin does not exist"
     fi
