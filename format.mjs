@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// Using vscode run on save is preferred
+
 /**
  * @file autoformatting and file watching with black for Python and clang-format
  * for C++
