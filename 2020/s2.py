@@ -30,7 +30,7 @@ for i in range(rows):
         squares.setdefault(val, []).append(squareValue)
 
 
-def solve(squareValue):
+def solve(squareValue: int) -> bool:
     # If the value of the square is 1, it can only go to (1, 1).
     # Therefore, we have reached the end.
     if squareValue == 1:
