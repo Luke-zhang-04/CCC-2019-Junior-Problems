@@ -38,10 +38,10 @@ def solve(squareValue: int) -> bool:
     if squareValue == 1:
         return True
 
-    for index in squares.setdefault(squareValue, []):
-        if index not in visited:  # If square hasn't been visited
-            visited.add(index)  # Add to visited
-            if solve(index):  # Solve
+    for newSquareValue in squares.setdefault(squareValue, []):
+        if newSquareValue not in visited:  # If square hasn't been visited
+            visited.add(newSquareValue)  # Add to visited
+            if solve(newSquareValue):  # Solve
                 return True
 
     return False
