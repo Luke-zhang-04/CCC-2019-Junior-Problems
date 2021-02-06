@@ -17,14 +17,14 @@ const niceTry = (func) => {
 
 const buildInfo = niceTry(() => require("./buildInfo.json")) ?? {},
     stdinBuffer = fs.readFileSync(0, "utf-8") // STDIN_FILENO = 0,
-let [file, checksum] = stdinBuffer.toString().trim().split(":")
+let checksum = stdinBuffer.toString().trim()
 
 checksum = checksum.replace(/-/gui, "").trim()
 
-if (buildInfo[file] && buildInfo[file] === checksum) {
+if (buildInfo.lastCompile && buildInfo.lastCompile === checksum) {
     console.log(0)
 } else {
-    buildInfo[file] = checksum
+    buildInfo.lastCompile = checksum
 
     fs.writeFile("buildInfo.json", JSON.stringify(buildInfo) + "\n", () => {
         console.log(1)

@@ -12,6 +12,8 @@ IFS=" " read -ra args <<< "$argString" # Assign args variable from argv
 inputFile="" # Input file name for later
 bin="bin" # Binary output file
 compiler="clang++" # Default compiler
+checksumCmd="openssl" # Default checksum command
+checksumAlgo="sha3-384" # Default checksum algorithm
 
 # If -h or --help flags are passed
 if [[ "${args[*]}" =~ "-h" ]]||[[ "${args[*]}" =~ "--help" ]]||[[ ${#args[@]} == 0 ]]; then
@@ -51,7 +53,18 @@ if [[ ! "$(g++ --version)" ]]; then
     exit 1
 fi
 
-if [[ $(echo "${inputFile}:$(shasum -a 384 "$inputFile")" | node buildInfo.js) == 1 ]]; then
+if [[ ! "$(openssl version)" ]]; then
+    echo "openssl not found; changing checksum command to shasum"
+    checksumCmd="shasum"
+    checksumAlgo="-a 384"
+fi
+
+if [[ ! "$(shasum --version)" ]]; then
+    echo "shasum not found, exiting"
+    exit 1
+fi
+
+if [[ $("$checksumCmd" "$checksumAlgo" "$inputFile" | node buildInfo.js) == 1 ]]; then
     echo "$compiler $inputFile -o $bin --std=c++11"
     "$compiler" "$inputFile" -o "$bin" --std=c++11 || exit 1
     echo "Compiled!"
