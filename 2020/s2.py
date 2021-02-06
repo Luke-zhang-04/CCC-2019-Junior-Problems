@@ -1,5 +1,7 @@
 #!/bin/python3
+
 import sys
+from typing import Dict, List
 
 # Recursion limit needs to be high, but the grader won't accept numbers such as 1 000 000
 sys.setrecursionlimit(300_000)
@@ -18,7 +20,7 @@ visited = set()
 """Squares to be stored in the following way:
 {valueOfSquare: [productOfCoords...]}
 """
-squares = {}
+squares: Dict[int, List[int]] = {}
 
 for i in range(rows):
     vals = list(
