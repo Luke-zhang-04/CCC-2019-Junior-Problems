@@ -73,14 +73,13 @@ else
 fi
 
 
-
 # If -e or --exec flags are passed
 if [[ "${args[*]}" =~ "-e" ]]||[[ "${args[*]}" =~ "--exec" ]]; then
     if test -f "$bin"; then
         dashes="---------------"
         printf "Executing\n\nProgram output:\n%s\n" $dashes
         ./"$bin"
-        echo "$dashes"
+        echo -e "\n$dashes"
     else
         echo "$bin does not exist"
     fi
