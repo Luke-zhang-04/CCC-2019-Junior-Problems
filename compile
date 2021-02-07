@@ -76,8 +76,8 @@ fi
 # If -e or --exec flags are passed
 if [[ "${args[*]}" =~ "-e" ]]||[[ "${args[*]}" =~ "--exec" ]]; then
     if test -f "$bin"; then
-        dashes="---------------"
-        printf "Executing\n\nProgram output:\n%s\n" $dashes
+        dashes="$(printf "%*s\n" "${COLUMNS:-$(tput cols)}" "" | tr " " -)"
+        printf "Executing\n\nProgram output:\n%s\n" "$dashes"
         ./"$bin"
         echo -e "\n$dashes"
     else
