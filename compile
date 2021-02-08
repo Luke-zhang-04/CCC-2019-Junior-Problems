@@ -64,7 +64,10 @@ if [[ ! "$(shasum --version)" ]]; then
     exit 1
 fi
 
-if [[ $("$checksumCmd" "$checksumAlgo" "$inputFile" | node buildInfo.js) == 1 ]]; then
+checksum="$("$checksumCmd" "$checksumAlgo" "$inputFile")"
+
+if [[ "$checksum" != "$(cat lastBuild)" ]]; then
+    echo "$checksum" > lastBuild
     echo "$compiler $inputFile -o $bin --std=c++11"
     "$compiler" "$inputFile" -o "$bin" --std=c++11 || exit 1
     echo "Compiled!"

@@ -8,4 +8,4 @@ data
 all_data
 *.zip
 **/*/.DS_Store
-buildInfo.json
+lastBuild
