@@ -9,3 +9,4 @@ all_data
 *.zip
 **/*/.DS_Store
 lastBuild
+.vscode
