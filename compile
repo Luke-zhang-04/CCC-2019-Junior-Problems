@@ -68,8 +68,8 @@ checksum="$("$checksumCmd" "$checksumAlgo" "$inputFile")"
 
 if [[ "$checksum" != "$(cat lastBuild)" ]]; then
     echo "$checksum" > lastBuild
-    echo "$compiler $inputFile -o $bin --std=c++11"
-    "$compiler" "$inputFile" -o "$bin" --std=c++11 || exit 1
+    echo "$compiler $inputFile -o $bin --std=c++17"
+    "$compiler" "$inputFile" -o "$bin" --std=c++17 || exit 1
     echo "Compiled!"
 else
     echo "No changes were made to $inputFile"
