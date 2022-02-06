@@ -1,6 +1,5 @@
 #!/bin/python
 
-from pprint import pprint
 from typing import List, Union
 
 
@@ -79,7 +78,7 @@ def canMoveDown():
     return y + 1 < len(grid) and grid[y + 1][x] == False
 
 
-for remainingSteps in range(steps, 0, -1):
+for _ in range(steps):
     if lastDirection == None or lastDirection == "r":
         if canMoveUp():
             moveUp()
