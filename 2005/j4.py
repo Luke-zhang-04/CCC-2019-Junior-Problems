@@ -30,65 +30,90 @@ grid[y][x] = True
 
 lastDirection = None
 
+
+def moveRight():
+    global x, y, lastDirection
+
+    grid[y][x + 1] = True
+    x += 1
+    lastDirection = "r"
+
+
+def canMoveRight():
+    return x + 1 < len(grid[0]) and grid[y][x + 1] == False
+
+
+def moveLeft():
+    global x, y, lastDirection
+
+    grid[y][x - 1] = True
+    x -= 1
+    lastDirection = "l"
+
+
+def canMoveLeft():
+    return x - 1 >= 0 and grid[y][x - 1] == False
+
+
+def moveUp():
+    global x, y, lastDirection
+
+    grid[y - 1][x] = True
+    y -= 1
+    lastDirection = "u"
+
+
+def canMoveUp():
+    return y - 1 >= 0 and grid[y - 1][x] == False
+
+
+def moveDown():
+    global x, y, lastDirection
+
+    grid[y + 1][x] = True
+    y += 1
+    lastDirection = "d"
+
+
+def canMoveDown():
+    return y + 1 < len(grid) and grid[y + 1][x] == False
+
+
 for remainingSteps in range(steps, 0, -1):
     if lastDirection == None or lastDirection == "r":
-        if y - 1 >= 0 and grid[y - 1][x] == False:
-            grid[y - 1][x] = True
-            y -= 1
-            lastDirection = "u"
-        elif x + 1 < len(grid[0]) and grid[y][x + 1] == False:
-            grid[y][x + 1] = True
-            x += 1
-            lastDirection = "r"
-        elif y + 1 < len(grid) and grid[y + 1][x] == False:
-            grid[y + 1][x] = True
-            y += 1
-            lastDirection = "d"
+        if canMoveUp():
+            moveUp()
+        elif canMoveRight():
+            moveRight()
+        elif canMoveDown():
+            moveDown()
         else:
             break
     elif lastDirection == "l":
-        if y + 1 < len(grid) and grid[y + 1][x] == False:
-            grid[y + 1][x] = True
-            y += 1
-            lastDirection = "d"
-        elif x - 1 >= 0 and grid[y][x - 1] == False:
-            grid[y][x - 1] = True
-            x -= 1
-            lastDirection = "l"
-        elif y - 1 >= 0 and grid[y - 1][x] == False:
-            grid[y - 1][x] = True
-            y -= 1
-            lastDirection = "u"
+        if canMoveDown():
+            moveDown()
+        elif canMoveLeft():
+            moveLeft()
+        elif canMoveUp():
+            moveUp()
         else:
             break
     elif lastDirection == "u":
-        if x - 1 >= 0 and grid[y][x - 1] == False:
-            grid[y][x - 1] = True
-            x -= 1
-            lastDirection = "l"
-        elif y - 1 >= 0 and grid[y - 1][x] == False:
-            grid[y - 1][x] = True
-            y -= 1
-            lastDirection = "u"
-        elif x + 1 < len(grid[0]) and grid[y][x + 1] == False:
-            grid[y][x + 1] = True
-            x += 1
-            lastDirection = "r"
+        if canMoveLeft():
+            moveLeft()
+        elif canMoveUp():
+            moveUp()
+        elif canMoveRight():
+            moveRight()
         else:
             break
     elif lastDirection == "d":
-        if x + 1 < len(grid[0]) and grid[y][x + 1] == False:
-            grid[y][x + 1] = True
-            x += 1
-            lastDirection = "r"
-        elif y + 1 < len(grid) and grid[y + 1][x] == False:
-            grid[y + 1][x] = True
-            y += 1
-            lastDirection = "d"
-        elif x - 1 >= 0 and grid[y][x - 1] == False:
-            grid[y][x - 1] = True
-            x -= 1
-            lastDirection = "l"
+        if canMoveRight():
+            moveRight()
+        elif canMoveDown():
+            moveDown()
+        elif canMoveLeft():
+            moveLeft()
 
         else:
             break
